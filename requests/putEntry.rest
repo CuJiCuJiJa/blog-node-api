@@ -1,0 +1,10 @@
+PUT http://localhost:3001/api/entry/620e8e3a5ed719d6741d7d94
+Content-Type: application/json
+
+{
+    "author": "updated",
+    "name": "updated",
+    "year": 9999,
+    "type": "updated2",
+    "cover": ""
+}
