@@ -4,18 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "./node_modules/.bin/nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production nodemon index.js",
+    "dev": "NODE_ENV=development ./node_modules/.bin/nodemon index.js",
+    "test": "NODE_ENV=test jest --verbose"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "5.0.1",
     "cors": "2.8.5",
     "express": "4.17.1",
     "mongoose": "6.2.1"
   },
   "devDependencies": {
-    "eslint": "8.9.0"
+    "dotenv": "^16.0.0",
+    "eslint": "8.9.0",
+    "jest": "27.5.1",
+    "nodemon": "2.0.15",
+    "supertest": "6.2.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

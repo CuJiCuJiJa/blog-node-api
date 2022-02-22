@@ -1,31 +1,14 @@
 
 const mongoose = require('mongoose')
-const connectionString = 'mongodb+srv://admin:admin@cluster0.vamwf.mongodb.net/personalDB?retryWrites=true&w=majority'
+
+const { NODE_ENV, MONGODB_URI, MONGODB_URI_TEST } = process.env 
+const connectionString = NODE_ENV === 'development' ? MONGODB_URI_TEST : MONGODB_URI
+
+console.log('using DB', NODE_ENV, connectionString)
 
 //----CONEXION A LA BASE DE DATOS----//
 mongoose.connect(connectionString).then(() => {
 	console.log('DB connected')
 }).catch(err => {
-	console.log(err)
-})
-
-/* 
-//----CREO ELEMENTO DE EJEMPLO----//
-const example = new Entry({
-    author: 'Fabrizio',
-    name: 'Ejemplo',
-    year: 2022,
-    type: 'ejemplo',
-    cover: 'ejemplo'
-})
-
-//----GUARDO EL ELEMENTO Y EVALUO POR ERRORES, CIERRO CONECCION----//
-example.save()
-    .then(result => {
-        console.log('Elemento guardado en la base de datos', result)
-        mongoose.connection.close()
-    })
-    .catch(err =>{
-        console.log('error:', err)
-    })
-*/
+	console.error()
+}) 
