@@ -1,17 +1,17 @@
 const { palindromo } = require('../utils/testing')
 
-test('palindromo of fabrizio', () => {
+test.skip('palindromo of fabrizio', () => {
     const result = palindromo('fabrizio')
     expect(result).toBe('oizirbaf')
 })
 
-test('palindromo of empty', () => {
+test.skip('palindromo of empty', () => {
     const result = palindromo('')
     expect(result).toBe('')
 })
 
 
-test('palindromo of undefined', () => {
+test.skip('palindromo of undefined', () => {
     const result = palindromo()
     expect(result).toBe('')
 })
